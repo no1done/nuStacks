@@ -11,24 +11,30 @@
 |
 */
 
-Route::get('/welcome', 'WelcomeController@index');
-
+/*----------------------------------------------------------------------------------------------------------------------------
+ *~~~~~~~~~~~~~~~~~~~ Application Routes ~~~~~~~~~~~~~~~~~~~~
+ *---------------------------------------------------------------------------------------------------------------------------*/
+ /*          Views       */
 Route::get('/', 'HomeController@index');
 
-Route::get('/welcome/register', 'WelcomeController@register');
-Route::post('/welcome/register', 'WelcomeController@store');
 
-// Route::controllers([
-// 	'auth' => 'Auth\AuthController',
-// 	'password' => 'Auth\PasswordController',
-// ]);
+
 
 /*----------------------------------------------------------------------------------------------------------------------------
- *~~~~~~~~~~~~~~~~ Login / Logout ~~~~~~~~~~~~~~~~~~~~~~~~
+ *~~~~~~~~~~~~~~~~~~~~~~ Register ~~~~~~~~~~~~~~~~~~~~~~~~
  *---------------------------------------------------------------------------------------------------------------------------*/
-//  /*          Views       */
-// Route::get('/login', 'Auth\AuthController@getLogin');
-// Route::get('/logout', 'Auth\AuthController@getLogout');
-//
-// /*        Requests       */
-// Route::post('/login', 'Auth\AuthController@postLogin');
+ /*          Views       */
+Route::get('/welcome/register', 'WelcomeController@register');
+/*        Requests       */
+Route::post('/welcome/register', 'WelcomeController@store');
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------
+ *~~~~~~~~~~~~~~~~~~~~ Login / Logout ~~~~~~~~~~~~~~~~~~~~~~~
+ *---------------------------------------------------------------------------------------------------------------------------*/
+ /*          Views       */
+Route::get('/welcome', 'WelcomeController@index');
+Route::get('/logout', 'Auth\AuthController@getLogout');
+/*        Requests       */
+Route::post('/login', 'Auth\AuthController@postLogin');

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>@yield('page', 'Home') | nuStacks</title>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="/js/jquery-2.1.3.min.js"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="/js/bootstrap.min.js"></script>
+
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/custom.css" rel="stylesheet">
+
+        <script type="text/javascript">
+	        jQuery(document).ready(function() {
+	            jQuery("abbr.timeago").timeago();
+	        });
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+            <!-- ______________ START OF NAV BAR __________________________ -->
+            <div class="row">
+                <div class="col-lg-12" col-md-12 col-sm-12>
+                    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                        <div class="container">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/">nuStacks</a>
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#"><img src="/img/usr/me.jpg" height="30" width="30" style="margin-right: 4px;"/>Ryan commendted on your post</a></li>
+                                            <li><a href="#"><img src="/img/usr/default.png" height="30" width="30" style="margin-right: 4px;"/>Dave wrote on your wall</a></li>
+                                            <li><a href="#"><img src="/img/usr/default.png" height="30" width="30" style="margin-right: 4px;"/>Kieran liked your status update</a></li>
+                                            <li><a href="#"><img src="/img/usr/default.png" height="30" width="30" style="margin-right: 4px;"/>Martin liked your status update</a></li>
+                                            <li><a href="#"><img src="/img/usr/default.png" height="30" width="30" style="margin-right: 4px;"/>Kezrobs liked your status update</a></li>
+                                            <li><a href="#"><img src="/img/usr/default.png" height="30" width="30" style="margin-right: 4px;"/>Andrew liked your status update</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" class="viewall">View All</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-link"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#"><img src="/img/usr/default.png" height="30" width="30" style="margin-right: 4px;"/>Friend request from Leigh Davies</a></li>
+                                            <li><a href="#"><img src="/img/usr/default.png" height="30" width="30" style="margin-right: 4px;"/>Friend request from Raymond Done</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" class="viewall">View All</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-envelope"></span></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#"><img src="/img/usr/default.png" height="30" width="30" style="margin-right: 4px;"/>Kieran "Haha nah mate didn't see it did ..."</a></li>
+                                            <li><a href="#"><img src="/img/usr/default.png" height="30" width="30" style="margin-right: 4px;"/>Martin "Wait aint you supposed to be.."</a></li>
+                                            <li><a href="#"><img src="/img/usr/default.png" height="30" width="30" style="margin-right: 4px;"/>Leigh "Cinema tonight?!"</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" class="viewall">View All</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Settings</a></li>
+                                            <li><a href="#">Send us feedback</a></li>
+                                            <li><a href="#">Advertise with us</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="/logout">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <form class="navbar-form navbar-right" role="search">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+                                </form>
+
+
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                </div>
+            </div>
+            <!-- __________________________ END OF NAVBAR ______________________ -->
+
+
+
+            <!-- _______________ CONTENT _________________ -->
+            @yield('content')
+
+
+
+        <hr>
+            <footer class="footer text-center">
+                <p>&copy; 2014 - {{ date('Y') }} by nuStacks. All rights reserved.</p>
+            </footer>
+
+        </div>
+
+
+    </body>
+</html>

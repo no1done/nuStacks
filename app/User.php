@@ -31,4 +31,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token', 'admin', 'permant_publish'];
 
+
+	public function getNameAttribute()
+    {
+        return $this->attributes['firstname'] . ' ' . $this->attributes['surname'];
+    }
+
 }

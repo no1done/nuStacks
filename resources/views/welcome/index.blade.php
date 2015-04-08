@@ -25,7 +25,7 @@
 			<!-- login -->
 			<div class="col-lg-5">
 				<h3>Sign in</h3>
-				<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
+				<form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 					<div class="form-group">
