@@ -3,7 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Request;
-
+use App\Http\Requests\RegisterUserRequest;
 use App\User;
 
 class WelcomeController extends Controller {
@@ -44,23 +44,39 @@ class WelcomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function details()
+	public function register()
 	{
-		$input = Request::all();
-
-		return view('welcome.details')->with([
-			'post' => $input
-        ]);
+		return view('welcome.register');
 	}
 
 	/**
 	 * create a new user based on inputted fields.
 	 *
+	 * @param RegisterUserRequest $request
 	 * @return Response
 	 */
-	public function store()
+	public function store(RegisterUserRequest $request)
 	{
+		$data = $request->all();
 
+		$user = new User;
+
+		$name = explode(' ', $data['name']);
+
+		$user->firstname = $name[0];
+
+		if(!empty($name[1]) ? $user->surname = $name[1] : $user->surname = "");
+
+		$user->email = $data['email'];
+
+		$user->password = bcrypt($data['password']);
+
+		$user->unique_link = $data['unique_link'];
+
+		if($user->save())
+		{
+			return redirect('/');
+		}
 	}
 
 }

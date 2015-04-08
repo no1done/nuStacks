@@ -12,11 +12,11 @@
 */
 
 Route::get('/welcome', 'WelcomeController@index');
-Route::post('/welcome/details', 'WelcomeController@details');
 
 Route::get('/', 'HomeController@index');
 
-Route::post('/register', 'WelcomeController@store');
+Route::get('/welcome/register', 'WelcomeController@register');
+Route::post('/welcome/register', 'WelcomeController@store');
 
 // Route::controllers([
 // 	'auth' => 'Auth\AuthController',

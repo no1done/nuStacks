@@ -5,8 +5,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="jumbotron text-center" style="background-image: url('/img/jumbo2.jpg'); background-repeat: no-repeat; background-position: bottom;">
-                        <h1 class="press">Almost there</h1>
-                        <p>A few more things before you start stacking...</p>
+                        <h1 class="press">Welcome Aboard! .. Almost </h1>
+                        <p>We just need some details to make your account ...</p>
 
                     </div>
                 </div>
@@ -14,7 +14,16 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <?php //$status; ?>
+                    @if (count($errors) > 0)
+						<div class="alert alert-danger">
+							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+							<ul>
+								@foreach ($errors->all() as $error)
+									<li>{{ $error }}</li>
+								@endforeach
+							</ul>
+						</div>
+					@endif
                 </div>
             </div>
 
@@ -26,25 +35,25 @@
                     </p>
                     {!! Form::open(['url' => 'welcome/register']) !!}
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" value='<?= $post['signup_name']; ?>' readonly />
+                            {!! Form::text('name', Input::old('name'), ['class' => 'form-control', 'placeholder' => "Full Name", 'required' => "required"]) !!}
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control" value='<?= $post['signup_email']; ?>' readonly />
+                            {!! Form::email('email', Input::old('email'), ['class' => 'form-control', 'placeholder' => "Valid Email Address", 'required' => "required"]) !!}
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email__confirmation" class="form-control"  placeholder="Confirm your email.."/>
+                            {!! Form::email('email_confirmation', Input::old('email_confirmation'), ['class' => 'form-control', 'placeholder' => "Confirm your email address..", 'required' => "required"]) !!}
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" class="form-control" value='<?= $post['signup_password']; ?>' readonly />
+                            {!! Form::password('password', ['class' => 'form-control', 'placeholder' => "Password", 'required' => "required"]) !!}
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm your password.." autocomplete="off" />
+                            {!! Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => "Confirm your password..", 'required' => "required"]) !!}
                         </div>
                         <div class="form-group">
                             <label>Desired profile link</label>
                             <div class="input-group">
                             <span class="input-group-addon">@</span>
-                            <input type="text" class="form-control" maxlength="40" placeholder="my-unique-link" name="unique_link">
+                            {!! Form::text('unique_link', Input::old('unique_link'), ['class' => 'form-control', 'placeholder' => "johndoe", 'required' => "required"]) !!}
                           </div>
                         </div>
                         <div class="form-group">
