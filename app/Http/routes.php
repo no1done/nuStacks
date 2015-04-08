@@ -11,11 +11,24 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/welcome', 'WelcomeController@index');
+Route::post('/welcome/details', 'WelcomeController@details');
 
-Route::get('home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+Route::post('/register', 'WelcomeController@store');
+
+// Route::controllers([
+// 	'auth' => 'Auth\AuthController',
+// 	'password' => 'Auth\PasswordController',
+// ]);
+
+/*----------------------------------------------------------------------------------------------------------------------------
+ *~~~~~~~~~~~~~~~~ Login / Logout ~~~~~~~~~~~~~~~~~~~~~~~~
+ *---------------------------------------------------------------------------------------------------------------------------*/
+//  /*          Views       */
+// Route::get('/login', 'Auth\AuthController@getLogin');
+// Route::get('/logout', 'Auth\AuthController@getLogout');
+//
+// /*        Requests       */
+// Route::post('/login', 'Auth\AuthController@postLogin');

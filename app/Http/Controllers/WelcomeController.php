@@ -1,5 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use Request;
+
+use App\User;
+
 class WelcomeController extends Controller {
 
 	/*
@@ -30,7 +36,31 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+		return view('welcome.index');
+	}
+
+	/**
+	 * Show the continued registration form to user.
+	 *
+	 * @return Response
+	 */
+	public function details()
+	{
+		$input = Request::all();
+
+		return view('welcome.details')->with([
+			'post' => $input
+        ]);
+	}
+
+	/**
+	 * create a new user based on inputted fields.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+
 	}
 
 }
