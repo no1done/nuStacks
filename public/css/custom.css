@@ -79,8 +79,8 @@ div.container a.brand {
 .quickpost
 {
     height: 35px;
-    width: 620px;
-    resize: none;
+    width: 620px!important;
+    resize: none!important;
 }
 
 .postholder
