@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStacksTable extends Migration {
+class RenameRequesteridColumn extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,9 @@ class CreateStacksTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('stacks', function(Blueprint $table)
+		Schema::table('friends', function($table)
 		{
-			$table->increments('id');
-			$table->timestamps();
+		    $table->renameColumn('requester_id', 'friend_id');
 		});
 	}
 
@@ -26,7 +25,10 @@ class CreateStacksTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('stacks');
+		Schema::table('friends', function($table)
+		{
+		    $table->renameColumn('friend_id', 'requester_id');
+		});
 	}
 
 }

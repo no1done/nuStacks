@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Post;
+use App\Friend;
+use App\User;
 
 class HomeController extends Controller {
 
@@ -21,7 +23,10 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$posts = Post::all();
+
+		$posts = \Auth::user()->friends()->posts()->latest('created_at')->get();
+
+		//dd($posts);
 
 		return view('app.home')->with([
 			'posts' => $posts

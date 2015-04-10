@@ -62,6 +62,27 @@
             <a href="#" style="font-size: 8pt;" class="pull-right"> + New Stack</a>
 
         </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- temp -->
+            <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                    <tr>
+                        <th>Friends</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Auth::user()->friends as $friend)
+                    <tr>
+                        <td>{{ $friend->name }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </div>

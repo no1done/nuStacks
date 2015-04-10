@@ -2,8 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\CreatePostRequest;
 use Illuminate\Http\Request;
+
+use App\Post;
 
 class PostsController extends Controller {
 
@@ -28,13 +30,17 @@ class PostsController extends Controller {
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+	 * Store a newly created post in posts table.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreatePostRequest $request)
 	{
-		//
+		$post = new Post($request->all());
+
+		\Auth::user()->posts()->save($post);
+
+		return redirect('/');
 	}
 
 	/**

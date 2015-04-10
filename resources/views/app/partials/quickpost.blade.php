@@ -1,8 +1,9 @@
 <div class="postholder">
-    <form class="form-inline" role="form">
+
+    {!! Form::open(['url' => "/post", 'class' => "form-inline"]) !!}
         <div class="form-group">
             <!--<input type="text" name="quickpost" class="form-control" placeholder="Write something new.." />-->
-            <textarea name="quickpost" id="quickpost" class="form-control quickpost" style="height: 35px;" placeholder="Write something new.."></textarea>
+            <textarea name="post" id="quickpost" class="form-control quickpost" style="height: 35px;" placeholder="Write something new.."></textarea>
             <script>
                 $('textarea.quickpost').focus(function() {
                     $(this).animate({height: "80px"}, 500);
@@ -21,11 +22,11 @@
         <div class="postactions">
 
             <div class="form-group">
-                <input type="hidden" name="publish" value="N" />
+                <input type="hidden" name="published" value="N" />
 
                 <div class="checkbox" style="margin-right: 10px;">
                     <label>
-                        Publish <input type="checkbox" value="Y" name="publish" id="publish"/>
+                        Publish <input type="checkbox" value="Y" name="published" id="publish"/>
                     </label>
                 </div>
             </div>
@@ -37,6 +38,6 @@
         </div>
 
 
-    </form>
+    {!! Form::close() !!}
 
 </div>
